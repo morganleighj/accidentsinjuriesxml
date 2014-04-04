@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+   
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="ico/favicon.png">
+
+    <title>Accidents per 100,000 People</title>
+
+<!--slider-->
+   <link rel="stylesheet" href="bjqs.css">
+
+    <!-- some pretty fonts for this demo page - not required for the slider -->
+    <link href='http://fonts.googleapis.com/css?family=Source+Code+Pro|Open+Sans:300' rel='stylesheet' type='text/css'> 
+
+    <!-- demo.css contains additional styles used to set up this demo page - not required for the slider --> 
+    <link rel="stylesheet" href="demo.css">
+
+    <!-- load jQuery and the plugin -->
+    <script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+    <script src="js/bjqs-1.3.min.js"></script>
+    
+          <script class="secret-source">
+        jQuery(document).ready(function($) {
+          
+          $('#banner-slide').bjqs({
+            animtype      : 'slide',
+            height        : 420,
+            width         : 750,
+            responsive    : true,
+            randomstart   : true
+          });
+          
+        });
+      </script>
+<!--end of slider-->
+    
+    
+    
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/font-awesome.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="css/main.css" rel="stylesheet">
+
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+     <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <!-- Scripts -->
+    <script type="text/javascript">
+   
+   $( document ).ready(function() {
+  // Call your js code goes here
+   
+    $.ajax({
+	type: "GET",
+	url: "per.xml",
+	dataType: "xml",
+	success: function (xml) {
+    
+	    // Parse the xml file and get data
+	    var xmlDoc = $.parseXML(xml),
+		$xml = $(xmlDoc);
+	    $xml.find('category[name="My t"] logo').each(function () {
+		$("#news-container").append($(this).text() + "<br />");
+	    });
+	}
+    });
+   $(function () {
+        $('#chart0').highcharts({
+            title: {
+                text: 'Burns per 100,000',
+                x: -20 //center
+            },
+            subtitle: {
+                text: 'Source: gapminder.org',
+                x: -20
+            },
+            xAxis: {
+                categories: ['2002', '2004']
+            },
+            yAxis: {
+                title: {
+                    text: ''
+                },
+                plotLines: [{
+                    value: 0,
+                    width: 1,
+                    color: '#808080'
+                }]
+            },
+            tooltip: {
+                valueSuffix: ' people'
+            },
+            legend: {
+                layout: 'vertical',
+                align: 'right',
+                verticalAlign: 'middle',
+                borderWidth: 0
+            },
+            series: [{
+                name: 'Afghanistan',
+                data: [5.460642, 5.120083332]
+            }, {
+                name: 'Bangladesh',
+                data: [12.55292, 12.49962616]
+            }, {
+                name: 'Brazil',
+                data: [0.9061288, 0.75271076]
+            }, {
+                name: 'China',
+                data: [1.074561, 0.806686938]
+            }, {
+                name: 'Fiji',
+                data: [5.213152, 4.785268784]
+            }, {
+                name: 'Germany',
+                data: [0.4332326, 0.424665183]
+            }, {
+                name: 'Japan',
+                data: [0.7657017, 0.704741001]
+            }, {
+                name: 'Laos',
+                data: [15.88974, 14.25634575]
+            }, {
+                name: 'Nigeria',
+                data: [6.928142, 6.034070492]
+            }, {
+                name: 'Philippines',
+                data: [0.1991602, 0.189581975]
+            }, {
+                name: 'South Africa',
+                data: [5.275811, 9.800415039]
+            }, {
+                name: 'United Arab Emirates',
+                data: [2.339252, 1.474206448]
+            }, {
+                name: 'United Kingdom',
+                data: [0.6323395, 0.577689111]
+            }, {
+                name: 'United States',
+                data: [1.124378, 0.973697603]
+            }]
+        });
+    });
+   
+   
+   
+   
+    $.ajax({
+	type: "GET",
+	url: "per.xml",
+	dataType: "xml",
+	success: function (xml) {
+    
+	    // Parse the xml file and get data
+	    var xmlDoc = $.parseXML(xml),
+		$xml = $(xmlDoc);
+	    $xml.find('category[name="My t"] logo').each(function () {
+		$("#news-container").append($(this).text() + "<br />");
+	    });
+	}
+    });
+   $(function () {
+        $('#chart1').highcharts({
+            title: {
+                text: 'Drowning per 100,000',
+                x: -20 //center
+            },
+            subtitle: {
+                text: 'Source: gapminder.org',
+                x: -20
+            },
+            xAxis: {
+                categories: ['2002', '2004']
+            },
+            yAxis: {
+                title: {
+                    text: ''
+                },
+                plotLines: [{
+                    value: 0,
+                    width: 1,
+                    color: '#808080'
+                }]
+            },
+            tooltip: {
+                valueSuffix: ' people'
+            },
+            legend: {
+                layout: 'vertical',
+                align: 'right',
+                verticalAlign: 'middle',
+                borderWidth: 0
+            },
+            series: [{
+                name: 'Afghanistan',
+                data: [8.894667, 8.38634491]
+            }, {
+                name: 'Bangladesh',
+                data: [6.269516, 6.356078148]
+            }, {
+                name: 'Brazil',
+                data: [4.259397, 4.08928442]
+            }, {
+                name: 'China',
+                data: [9.386707, 9.949160576]
+            }, {
+                name: 'Fiji',
+                data: [6.576886, 5.708872795]
+            }, {
+                name: 'Germany',
+                data: [0.5902155, 0.458497047]
+            }, {
+                name: 'Japan',
+                data: [2.678272, 2.462170601]
+            }, {
+                name: 'Laos',
+                data: [10.93498, 9.289315224]
+            }, {
+                name: 'Nigeria',
+                data: [20.27499, 13.17629242]
+            }, {
+                name: 'Philippines',
+                data: [4.425923, 4.208931923]
+            }, {
+                name: 'South Africa',
+                data: [2.831743, 2.593145132]
+            }, {
+                name: 'United Arab Emirates',
+                data: [6.081578, 2.960258007]
+            }, {
+                name: 'United Kingdom',
+                data: [0.4009245, 0.347905368]
+            }, {
+                name: 'United States',
+                data: [1.347872, 1.151525617]
+            }]
+        });
+    });
+   
+   
+   
+   
+    $.ajax({
+	type: "GET",
+	url: "per.xml",
+	dataType: "xml",
+	success: function (xml) {
+    
+	    // Parse the xml file and get data
+	    var xmlDoc = $.parseXML(xml),
+		$xml = $(xmlDoc);
+	    $xml.find('category[name="My t"] logo').each(function () {
+		$("#news-container").append($(this).text() + "<br />");
+	    });
+	}
+    });
+   $(function () {
+        $('#chart2').highcharts({
+            title: {
+                text: 'Falls per 100,000',
+                x: -20 //center
+            },
+            subtitle: {
+                text: 'Source: gapminder.org',
+                x: -20
+            },
+            xAxis: {
+                categories: ['2002', '2004']
+            },
+            yAxis: {
+                title: {
+                    text: ''
+                },
+                plotLines: [{
+                    value: 0,
+                    width: 1,
+                    color: '#808080'
+                }]
+            },
+            tooltip: {
+                valueSuffix: ' people'
+            },
+            legend: {
+                layout: 'vertical',
+                align: 'right',
+                verticalAlign: 'middle',
+                borderWidth: 0
+            },
+            series: [{
+                name: 'Afghanistan',
+                data: [6.331071, 5.331773758]
+            }, {
+                name: 'Bangladesh',
+                data: [11.54749, 11.09069443]
+            }, {
+                name: 'Brazil',
+                data: [4.782853, 6.068707943]
+            }, {
+                name: 'China',
+                data: [8.447947, 8.98939991]
+            }, {
+                name: 'Fiji',
+                data: [0.0762395, 0.043011017]
+            }, {
+                name: 'Germany',
+                data: [4.398823, 4.830601215]
+            }, {
+                name: 'Japan',
+                data: [2.618268, 2.524842262]
+            }, {
+                name: 'Laos',
+                data: [15.18016, 13.66785049]
+            }, {
+                name: 'Nigeria',
+                data: [5.606611, 4.748979092]
+            }, {
+                name: 'Philippines',
+                data: [3.922125, 3.564413071]
+            }, {
+                name: 'South Africa',
+                data: [4.493975, 3.47616291]
+            }, {
+                name: 'United Arab Emirates',
+                data: [3.707171, 1.791452646]
+            }, {
+                name: 'United Kingdom',
+                data: [4.474754, 3.453276873]
+            }, {
+                name: 'United States',
+                data: [3.064667, 3.96007967]
+            }]
+        });
+    });
+   
+   
+   
+    $.ajax({
+	type: "GET",
+	url: "per.xml",
+	dataType: "xml",
+	success: function (xml) {
+    
+	    // Parse the xml file and get data
+	    var xmlDoc = $.parseXML(xml),
+		$xml = $(xmlDoc);
+	    $xml.find('category[name="My t"] logo').each(function () {
+		$("#news-container").append($(this).text() + "<br />");
+	    });
+	}
+    });
+      $(function () {
+        $('#chart3').highcharts({
+            title: {
+                text: 'Poisioning per 100,000',
+                x: -20 //center
+            },
+            subtitle: {
+                text: 'Source: gapminder.org',
+                x: -20
+            },
+            xAxis: {
+                categories: ['2002', '2004']
+            },
+            yAxis: {
+                title: {
+                    text: ''
+                },
+                plotLines: [{
+                    value: 0,
+                    width: 1,
+                    color: '#808080'
+                }]
+            },
+            tooltip: {
+                valueSuffix: ' people'
+            },
+            legend: {
+                layout: 'vertical',
+                align: 'right',
+                verticalAlign: 'middle',
+                borderWidth: 0
+            },
+            series: [{
+                name: 'Afghanistan',
+                data: [5.220776, 4.712897301]
+            }, {
+                name: 'Bangladesh',
+                data: [7.232305, 7.066586971]
+            }, {
+                name: 'Brazil',
+                data: [0.213433, 0.166350588]
+            }, {
+                name: 'China',
+                data: [5.510108, 4.004791737]
+            }, {
+                name: 'Fiji',
+                data: [5.376029, 5.035852909]
+            }, {
+                name: 'Germany',
+                data: [0.6664206, 0.805428684]
+            }, {
+                name: 'Japan',
+                data: [0.3964646, 0.538310409]
+            }, {
+                name: 'Laos',
+                data: [8.758049, 8.018582344]
+            }, {
+                name: 'Nigeria',
+                data: [8.717734, 7.391807556]
+            }, {
+                name: 'Philippines',
+                data: [0.4584707, 0.44503814]
+            }, {
+                name: 'South Africa',
+                data: [1.323733, 1.188189149]
+            }, {
+                name: 'United Arab Emirates',
+                data: [0.3422347, 0.162322968]
+            }, {
+                name: 'United Kingdom',
+                data: [1.952334, 1.853808641]
+            }, {
+                name: 'United States',
+                data: [4.318336, 6.7532444]
+            }]
+        });
+    });
+   
+   
+   });
+   
+    </script>
+    
+    
+    <!--DataTABLE-->
+    <script type="text/javascript">
+      google.load('visualization', '1', {packages: ['table0']});
+    </script>
+    <script type="text/javascript">
+    function drawVisualization() {
+      // Create and populate the data table.
+      var data = google.visualization.arrayToDataTable([
+        ['Country', '2002', '2004'],
+        ['Afghanistan', 5.460642, 5.120083332],
+        ['Bangladesh', 12.55292, 12.49962616],
+        ['Brazil', 0.9061288, 0.75271076],
+        ['China', 1.074561, 0.806686938],
+        ['Fiji', 5.213152, 4.785268784],
+        ['Germany', 0.4332326, 0.424665183],
+        ['Japan', 0.7657017, 0.704741001],
+        ['Laos', 15.88974, 14.25634575],
+        ['Nigeria', 6.928142, 6.034070492],
+        ['Philippines', 0.1991602, 0.189581975],
+        ['South Africa', 5.275811, 9.80041503],
+        ['United Arab Emirates', 2.339252, 1.474206448],
+        ['United Kingdom', 0.6323395, 0.577689111],
+        ['United States', 1.124378, 0.973697603]
+      ]);
+    
+      // Create and draw the visualization.
+      visualization = new google.visualization.Table(document.getElementById('table0'));
+      visualization.draw(data, null);
+    }
+    
+
+    google.setOnLoadCallback(drawVisualization);
+    </script>
+    
+        <script type="text/javascript">
+      google.load('visualization', '1', {packages: ['table1']});
+    </script>
+    <script type="text/javascript">
+    function drawVisualization() {
+      // Create and populate the data table.
+      var data = google.visualization.arrayToDataTable([
+        ['Country', '2002', '2004'],
+        ['Afghanistan', 8.894667, 8.38634491],
+        ['Bangladesh', 6.269516, 6.356078148],
+        ['Brazil', 4.259397, 4.08928442],
+        ['China', 9.386707, 9.949160576],
+        ['Fiji', 6.576886, 5.708872795],
+        ['Germany', 0.5902155, 0.458497047],
+        ['Japan', 2.678272, 2.462170601],
+        ['Laos', 10.93498, 9.289315224],
+        ['Nigeria', 20.27499, 13.176292422],
+        ['Philippines', 4.425923, 4.208931923],
+        ['South Africa', 2.831743, 2.593145132],
+        ['United Arab Emirates', 6.081578, 2.960258007],
+        ['United Kingdom', 0.4009245, 0.347905368],
+        ['United States', 1.347872, 1.151525617]
+      ]);
+    
+      // Create and draw the visualization.
+      visualization = new google.visualization.Table(document.getElementById('table1'));
+      visualization.draw(data, null);
+    }
+    
+
+    google.setOnLoadCallback(drawVisualization);
+    </script>
+    
+        <script type="text/javascript">
+      google.load('visualization', '1', {packages: ['table2']});
+    </script>
+    <script type="text/javascript">
+    function drawVisualization() {
+      // Create and populate the data table.
+      var data = google.visualization.arrayToDataTable([
+        ['Country', '2002', '2004'],
+        ['Afghanistan', 6.331071, 5.331773758],
+        ['Bangladesh', 11.54749, 11.09069443],
+        ['Brazil', 4.782853, 6.068707943],
+        ['China', 8.447947, 8.98939991],
+        ['Fiji', 0.0762395, 0.043011017],
+        ['Germany', 4.398823, 4.830601215],
+        ['Japan', 2.618268, 2.524842262],
+        ['Laos', 15.18016, 13.66785049],
+        ['Nigeria', 5.606611, 4.748979092],
+        ['Philippines', 3.922125, 3.564413071],
+        ['South Africa', 4.493975, 3.47616291],
+        ['United Arab Emirates', 3.707171, 1.791452646],
+        ['United Kingdom', 4.474754, 3.453276873],
+        ['United States', 3.064667, 3.96007967]
+      ]);
+    
+      // Create and draw the visualization.
+      visualization = new google.visualization.Table(document.getElementById('table2'));
+      visualization.draw(data, null);
+    }
+    
+
+    google.setOnLoadCallback(drawVisualization);
+    </script>
+    
+        <script type="text/javascript">
+      google.load('visualization', '1', {packages: ['table3']});
+    </script>
+    <script type="text/javascript">
+    function drawVisualization() {
+      // Create and populate the data table.
+      var data = google.visualization.arrayToDataTable([
+        ['Country', '2002', '2004'],
+        ['Afghanistan', 5.220776, 4.712897301],
+        ['Bangladesh', 7.232305, 7.066586971],
+        ['Brazil', 0.213433, 0.166350588],
+        ['China', 5.510108, 4.004791737],
+        ['Fiji', 5.376029, 5.035852909],
+        ['Germany', 0.6664206, 0.805428684],
+        ['Japan', 0.3964646, 0.538310409],
+        ['Laos', 8.758049, 8.018582344],
+        ['Nigeria', 8.717734, 7.391807556],
+        ['Philippines', 0.4584707, 0.44503814],
+        ['South Africa', 1.323733, 1.188189149],
+        ['United Arab Emirates', 0.3422347, 0.1623229688],
+        ['United Kingdom', 1.952334, 1.853808641],
+        ['United States', 4.318336, 6.7532444]
+      ]);
+    
+      // Create and draw the visualization.
+      visualization = new google.visualization.Table(document.getElementById('table3'));
+      visualization.draw(data, null);
+    }
+    
+
+    google.setOnLoadCallback(drawVisualization);
+    </script>
+    
+	</script>
+
+ 
+    <!-- End of scripts -->
+    
+  </head>
+
+  <body>
+
+    <!-- Fixed navbar -->
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a href="#"><h1 style="margin-top: 8px;">Injuries and Accidents</h1></a>
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li class="active"><a href="#">VIDEO</a></li>
+            <li><a href="#1">CHARTS</a></li>
+            <li><a href="#2">DATA</a></li>
+            <li><a href="#3">ABOUT</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </div>
+
+	<div id="headerwrap">
+		<div class="container">
+			<div class="row centered">
+			  <a name="#"></a>
+				<iframe width="100%" height="450" src="http://www.youtube.com/embed/IJNR2EpS0jw" frameborder="0" allowfullscreen></iframe>
+			</div><!-- row -->
+		</div><!-- container -->
+	</div><!-- headerwrap -->
+
+
+	<!-- FEATURE SECTION -->
+	<div class="container wb">
+		<div class="row centered">
+			<br><br>
+			<a name="1"></a>
+			<div class="col-lg-8 col-lg-offset-2">
+				<h4>CHARTS</h4>
+				
+<script src="http://code.highcharts.com/highcharts.js"></script>
+<script src="http://code.highcharts.com/modules/exporting.js"></script>
+<br><br>
+<center>
+
+      <div id="banner-slide">
+
+        <!-- start Basic Jquery Slider -->
+        <ul class="bjqs">
+          <li><div id="chart0"></div></li>
+          <li><div id="chart1"></div></li>
+          <li><div id="chart2"></div></li>
+	  <li><div id="chart3"></div></li>
+	  <li class></li>
+        </ul>
+        <!-- end Basic jQuery Slider -->
+
+      </div>
+      
+</center>
+
+				
+				<p><div id="chart"></div></p>
+			<p><br/><br/></p>
+			</div>
+		</div><!-- row -->
+	</div><!-- container -->
+
+
+	<div id="lg">
+		<div class="container">
+			<div class="row centered" style="height: 600px">
+			  <a name="2"></a>
+                          <script type="text/javascript" src="//www.google.com/jsapi"></script>
+				<h4>DATA table</h4>
+                                <br>
+                                    <p><h2>Burns every year per 100,000 people</h2></p>
+				<p><div id="table0"></div></p>
+                                
+                                <p><h2>Drowning every year per 100,000 people</h2></p>
+				<p><div id="table1"></div></p>
+                                    <p><h2>Falls every year per 100,000 people</h2></p>
+				<p><div id="table2"></div></p>
+                                    <p><h2>Poisioning every year per 100,000 people</h2></p>
+				<p><div id="table3"></div></p>
+
+                                
+			</div><!-- row -->
+		</div><!-- container -->
+	</div><!-- dg -->
+	
+	
+	<div id="r">
+		<div class="container">
+			<div class="row centered">
+			  <a name="3"></a>
+				<div class="col-lg-8 col-lg-offset-2">
+					<h4>ABOUT this project</h4>
+					<p> This project used data to display the mortality rates at which people experience accidents.</p>
+				</div>
+			</div><!-- row -->
+		</div><!-- container -->
+	</div><! -- r wrap -->
+	
+	
+	<!-- FOOTER -->
+	<div id="f">
+		<div class="container">
+			<div class="row centered">
+				
+			</div><!-- row -->
+		</div><!-- container -->
+	</div><!-- Footer -->
+
+
+	<!-- MODAL FOR CONTACT -->
+	<!-- Modal -->
+	<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	  <div class="modal-dialog">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+	        <h4 class="modal-title" id="myModalLabel">contact us</h4>
+	      </div>
+	      <div class="modal-body">
+		        <div class="row centered">
+		        	<p>
+		        	</p>
+		        	<div id="mapwrap">
+		<iframe height="300" width="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://www.google.es/maps?t=m&amp;ie=UTF8&amp;ll=52.752693,22.791016&amp;spn=67.34552,156.972656&amp;z=2&amp;output=embed"></iframe>
+					</div>	
+		        </div>
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-danger" data-dismiss="modal">Save & Go</button>
+	      </div>
+	    </div><!-- /.modal-content -->
+	  </div><!-- /.modal-dialog -->
+	</div><!-- /.modal -->
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+   
+    <script src="js/bootstrap.min.js"></script>
+    
+    <script src="js/libs/jquery.secret-source.min.js"></script>
+
+    <script>
+    jQuery(function($) {
+
+        $('.secret-source').secretSource({
+            includeTag: false
+        });
+
+    });
+    </script>
+    
+  </body>
+</html>
